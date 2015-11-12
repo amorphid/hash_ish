@@ -14,17 +14,17 @@ gem install hash_ish
 
 ## Usage
 
-1.  Insert hash
-
 ```
-hash     = { a { b: "c"} }
+require 'hash_ish'
+
+# insert hash into new hash_ish
+hash     = { a { b: "c" } }
 hash_ish = HashIsh.new(hash)
-```
 
-2.  Access hash keys with method calls
-
-```
+# access hash keys with method calls
 hash_ish.a.b # returns 'c'
+```
+
 
 ## Known issues
 
@@ -41,4 +41,3 @@ HashIsh.new(123 => 456)
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
