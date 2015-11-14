@@ -1,3 +1,8 @@
+## 0.4.2 (2015-11-14)
+
+Bug Fixes:
+- Fix incompatible JSON gem version
+
 ## 0.4.1 (2015-11-14)
 
 Improvements:
@@ -10,7 +15,7 @@ Features:
 - Add JSON support
 - Values that are empty Hashes now remain a Hash
 
-## 0.3.0 (2015-11-12)
+## 0.3.0 (2015-11-14)
 
 Features:
   - Can now add default values
