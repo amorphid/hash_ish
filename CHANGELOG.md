@@ -1,3 +1,8 @@
+## 0.4.1 (2015-11-14)
+
+Improvements:
+- Add versioning to gems in gemspec
+
 ## 0.4.0 (2015-11-14)
 
 Features:
@@ -5,7 +10,7 @@ Features:
 - Add JSON support
 - Values that are empty Hashes now remain a Hash
 
-## 0.3.0 (2015-11-13)
+## 0.3.0 (2015-11-12)
 
 Features:
   - Can now add default values
