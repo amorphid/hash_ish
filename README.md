@@ -12,30 +12,33 @@ Add it to your Gemfile or...
 gem install hash_ish
 ```
 
+## Test
+
+```
+bundle exec rspec
+```
+
 ## Usage
 
 ```
 require 'hash_ish'
 
-# insert hash into new hash_ish
-hash     = { a { b: "c" } }
-hash_ish = HashIsh.new(hash)
-
 # access hash keys with method calls
-hash_ish.a.b # returns 'c'
-```
+hash     = { a: { b: 'c' } }
+hash_ish = HashIsh.new(hash)
+hash_ish.a.b       # returns 'c', via method chaining
+hash_ish[:a][:b]   # returns 'c', via hash square brackets
+hash_ish.fetch(:a) # returns { b: 'c'}, via fetch
+hash_ish[:d]       # returns nil, just a like a Hash
+hash_ish.d         # raises NoMethodError, doesn't return nil
 
-
-## Known issues
-
-- currently only supports hash keys that would be valid method names
-
-```
-# this works
-HashIsh.new(foo: "bar").foo # bar
-
-# this blows up
-HashIsh.new(123 => 456)
+# set default values
+hash     = { a: nil, b: { c: false }, d: { e: 'lol' } }
+defaults = { a: 123, b: { c: true  }, d: { e: 'ಠ_ಠ' } }
+hash_ish = HashIsh.new(hash, defaults)
+hash_ish.a   # returns 123,  overrides falsey nil
+hash_ish.b.c # returns true, overrides falsey false
+hash_ish.d.e # returns 'lol', not overriden due to 'lol' being truthy
 ```
 
 ## License

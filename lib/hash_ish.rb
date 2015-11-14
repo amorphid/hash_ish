@@ -1,23 +1,16 @@
 require 'hash_ish/version'
+require 'hash_ish/add_default_values'
 require 'hash_ish/add_instance_methods'
 
-class HashIsh
-  def self.new(kwargs = {})
-    instance(
-      decorate_klass(hash_sub_class, kwargs))
+class HashIsh < Hash
+  def initialize(kwargs = {}, defaults = {})
+    default_kwargs = AddDefaultValues.new.add(kwargs, defaults)
+    decorate_self(self, default_kwargs)
   end
 
-  def self.decorate_klass(klass, kwargs)
-    klass.tap do |klass|
-      AddInstanceMethods.new.add(klass, kwargs)
+  def decorate_self(hash_ish, kwargs)
+    hash_ish.tap do |hash_ish|
+      AddInstanceMethods.new.add(hash_ish, kwargs)
     end
-  end
-
-  def self.instance(klass)
-    klass.new
-  end
-
-  def self.hash_sub_class
-    Class.new(Hash)
   end
 end
