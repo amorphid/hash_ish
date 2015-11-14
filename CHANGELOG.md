@@ -5,9 +5,6 @@ Features:
 - Add JSON support
 - Values that are empty Hashes now remain a Hash
 
-Bug fixes:
-- Removed square_brackets
-
 ## 0.3.0 (2015-11-13)
 
 Features:
