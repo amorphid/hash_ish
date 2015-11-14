@@ -1,12 +1,29 @@
+require 'json'
 require 'hash_ish/version'
 require 'hash_ish/add_default_values'
 require 'hash_ish/add_instance_methods'
 
-class HashIsh < Hash
+class HashIsh
   def initialize(kwargs = {}, defaults = {})
-    default_kwargs = AddDefaultValues.new.add(kwargs, defaults)
-    decorate_self(self, default_kwargs)
+    @hash = AddDefaultValues.new.add(kwargs, defaults)
+    decorate_self(self, @hash)
   end
+
+  def [](key)
+    @hash[key]
+  end
+
+  def to_hash
+    @hash
+  end
+
+  def to_json
+    to_hash.to_json
+  end
+
+  alias :to_h :to_hash
+
+  private
 
   def decorate_self(hash_ish, kwargs)
     hash_ish.tap do |hash_ish|

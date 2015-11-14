@@ -28,10 +28,3 @@ class HashIsh
     end
   end
 end
-
-# puts AddDefaultValues.new.add({}, { a: 1 }).inspect
-# puts AddDefaultValues.new.add({a: 2}, { a: 1 }).inspect
-# puts AddDefaultValues.new.add({a: 2}, { a: 1, b: 1 }).inspect
-# puts AddDefaultValues.new.add({ a: { b: nil }}, { a: { b: 1 } }).inspect
-# puts AddDefaultValues.new.add({ a: { b: 2 }}, { a: { b: 1 } }).inspect
-# puts AddDefaultValues.new.add({ a: { b: false }, c: { d: true }}, { a: { b: 1 }, c: { d: 123} }).inspect

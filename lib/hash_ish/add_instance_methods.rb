@@ -22,8 +22,16 @@ class HashIsh
       HashIsh.new(hash)
     end
 
+    def has_keys?(value)
+      value.keys.size > 0
+    end
+
+    def should_be_a_hash_ish?(value)
+      is_a_hash?(value) && has_keys?(value)
+    end
+
     def method_value(value)
-      is_a_hash?(value) ? hash_ish(value) : value
+      should_be_a_hash_ish?(value) ? hash_ish(value) : value
     end
   end
 end

@@ -24,16 +24,24 @@ bundle exec rspec
 require 'hash_ish'
 
 # access hash keys with method calls
-hash     = { a: { b: 'c' } }
+hash     = { a: 'b', c: { d: 'e' }, f: {} }
 hash_ish = HashIsh.new(hash)
-hash_ish.a.b       # returns 'c', via method chaining
-hash_ish[:a][:b]   # returns 'c', via hash square brackets
-hash_ish.fetch(:a) # returns { b: 'c'}, via fetch
-hash_ish[:d]       # returns nil, just a like a Hash
-hash_ish.d         # raises NoMethodError, doesn't return nil
+hash_ish.a         # returns 'b'
+hash_ish.a = ''    # raises NoMethodError
+hash_ish[:a]       # returns 'b'
+hash_ish[:a] = ''  # raises NoMethodError
+hash_ish.c         # returns instance of HashIsh w/ hash of { d: 'e' }
+hash_ish.c.class   # returns HashIsh
+hash_ish[:c]       # returns { d: 'e' }
+hash_ish[:c].class # returns Hash
+hash_ish.c.d       # returns 'e'
+hash_ish.f         # returns {}
+hash_ish.f.class   # returns Hash
+hash_ish[:f]       # returns {}
+hash_ish[:f].class # returns Hash
 
 # set default values
-hash     = { a: nil, b: { c: false }, d: { e: 'lol' } }
+hash     = { a: nil, b: { c: false }, d: { e: '>_<' } }
 defaults = { a: 123, b: { c: true  }, d: { e: 'ಠ_ಠ' } }
 hash_ish = HashIsh.new(hash, defaults)
 hash_ish.a   # returns 123,  overrides falsey nil
