@@ -1,4 +1,10 @@
-## 0.4.2 (2015-11-14)
+## 0.4.3 (2015-11-17)
+
+Refactors:
+- Add Srm gem
+- Move development dependencies into Gemfile
+
+## 0.4.2 (2015-11-16)
 
 Bug Fixes:
 - Fix incompatible JSON gem version
