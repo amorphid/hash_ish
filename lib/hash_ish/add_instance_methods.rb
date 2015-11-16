@@ -14,10 +14,6 @@ class HashIsh
       end
     end
 
-    def is_a_hash?(object)
-      object.is_a? Hash
-    end
-
     def hash_ish(hash)
       HashIsh.new(hash)
     end
@@ -27,7 +23,7 @@ class HashIsh
     end
 
     def should_be_a_hash_ish?(value)
-      is_a_hash?(value) && has_keys?(value)
+      Srm.is_a_hash?(value) && has_keys?(value)
     end
 
     def method_value(value)

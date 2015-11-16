@@ -93,13 +93,6 @@ describe HashIsh::AddDefaultValues do
     end
   end
 
-  context '#is_a_hash?' do
-    it 'is true' do
-      expect(subject.is_a_hash?({})).
-        to eq(true)
-    end
-  end
-
   context '#truthy?' do
     it 'is true if 0' do
       expect(subject.truthy?(

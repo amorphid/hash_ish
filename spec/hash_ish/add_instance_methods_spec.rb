@@ -24,13 +24,6 @@ describe HashIsh::AddInstanceMethods do
     end
   end
 
-  context '#is_a_hash?' do
-    it 'is true' do
-      expect(adder.is_a_hash?({})).
-        to eq(true)
-    end
-  end
-
   context '#hash_ish' do
     it 'to be a HashIsh' do
       expect(adder.hash_ish({})).

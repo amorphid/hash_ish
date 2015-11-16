@@ -10,7 +10,7 @@ class HashIsh
 
     def add_defaults(hash, defaults)
       defaults.each do |key, value|
-        if is_a_hash?(value)
+        if Srm.is_a_hash?(value)
           arg_hash = hash[key] || {}
           hash[key] = AddDefaultValues.new.add(arg_hash, value)
         else
@@ -21,10 +21,6 @@ class HashIsh
 
     def truthy?(hash, key)
       !!hash[key]
-    end
-
-    def is_a_hash?(object)
-      object.is_a? Hash
     end
   end
 end

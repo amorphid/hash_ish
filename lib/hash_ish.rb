@@ -1,4 +1,5 @@
 require 'json'
+require 'srm'
 require 'hash_ish/version'
 require 'hash_ish/add_default_values'
 require 'hash_ish/add_instance_methods'
