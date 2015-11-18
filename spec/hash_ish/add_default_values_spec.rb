@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe HashIsh::AddDefaultValues do
-  subject { described_class.new }
+  subject { described_class }
 
   def add(hash, defaults)
     subject.add(hash, defaults)
@@ -90,50 +90,6 @@ describe HashIsh::AddDefaultValues do
         {a: {b: true} },
         {a: {b: 1} }
       )).to eq({a: {b: true} })
-    end
-  end
-
-  context '#truthy?' do
-    it 'is true if 0' do
-      expect(subject.truthy?(
-        { a: 0 },
-        :a
-      )).to eq(true)
-    end
-
-    it 'is true if empty string' do
-      expect(subject.truthy?(
-        { a: '' },
-        :a
-      )).to eq(true)
-    end
-
-    it 'is true if true' do
-      expect(subject.truthy?(
-        { a: true },
-        :a
-      )).to eq(true)
-    end
-
-    it 'is false if empty hash' do
-      expect(subject.truthy?(
-        {},
-        :a
-      )).to eq(false)
-    end
-
-    it 'is false if nil' do
-      expect(subject.truthy?(
-        { a: nil },
-        :a
-      )).to eq(false)
-    end
-
-    it 'is false if false' do
-      expect(subject.truthy?(
-        { a: false },
-        :a
-      )).to eq(false)
     end
   end
 end

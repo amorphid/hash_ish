@@ -6,8 +6,12 @@ require 'hash_ish/add_instance_methods'
 
 class HashIsh
   def initialize(kwargs = {}, defaults = {})
-    @hash = AddDefaultValues.new.add(kwargs, defaults)
-    decorate_self(self, @hash)
+    @hash = AddDefaultValues.add(kwargs, defaults)
+    # decorate_self(self, @hash)
+  end
+
+  def method_missing(key)
+    @hash[key]
   end
 
   def [](key)
@@ -26,9 +30,9 @@ class HashIsh
 
   private
 
-  def decorate_self(hash_ish, kwargs)
-    hash_ish.tap do |hash_ish|
-      AddInstanceMethods.new.add(hash_ish, kwargs)
-    end
-  end
+  # def decorate_self(hash_ish, kwargs)
+  #   hash_ish.tap do |hash_ish|
+  #     AddInstanceMethods.add(hash_ish, kwargs)
+  #   end
+  # end
 end

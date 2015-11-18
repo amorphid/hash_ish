@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe HashIsh::AddInstanceMethods do
-  let(:adder) { described_class.new }
+  let(:adder) { described_class }
   let(:hash_ish) { HashIsh.new }
 
   context '#add' do
