@@ -5,17 +5,18 @@ require 'hash_ish/add_default_values'
 require 'hash_ish/add_instance_methods'
 
 class HashIsh
-  def initialize(kwargs = {}, defaults = {})
-    @hash = AddDefaultValues.add(kwargs, defaults)
-    # decorate_self(self, @hash)
+  def initialize(data = {}, overrides = {})
+    @hash = OverrideFalseyData.override(kwargs, overrides)
+    @keys = {}.tap { |keys| @hash.each_pair { }}
   end
 
   def method_missing(key)
-    @hash[key]
-  end
+    @
 
-  def [](key)
-    @hash[key]
+    if @hash_cache.member? :key
+      keys
+      @keys_cache
+      @hash[key]
   end
 
   def to_hash
@@ -27,12 +28,4 @@ class HashIsh
   end
 
   alias :to_h :to_hash
-
-  private
-
-  # def decorate_self(hash_ish, kwargs)
-  #   hash_ish.tap do |hash_ish|
-  #     AddInstanceMethods.add(hash_ish, kwargs)
-  #   end
-  # end
 end
