@@ -2,7 +2,9 @@ class HashIsh
   module OverrideFalseyData
     def self.override(data, overrides)
       overrides.map do |key, override|
-        Srm.is_a_hash?(value)
+        if Srm.is_a_hash?(override)
+          HashIsh.new()
+        end
       end
     end
 
