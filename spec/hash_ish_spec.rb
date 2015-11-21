@@ -14,7 +14,7 @@ describe HashIsh do
 
   it { expect(subject.a).to eq(hash[:a]) }
 
-  it { expect { subject.a  = '' }.to raise_error(NoMethodError) }
+  it { expect { subject.a = '' }.to raise_error(NoMethodError) }
 
   it { expect { (subject[:a]) }.to raise_error(NoMethodError) }
 

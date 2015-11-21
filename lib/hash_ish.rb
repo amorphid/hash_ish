@@ -8,17 +8,17 @@ class HashIsh
     @hash = OverrideFalseyDataUsingSchema.override(data, schema)
   end
 
-  def method_missing(key, args = [], _ = nil, &block)
+  def method_missing(key, _args = [], _ = nil, &_block)
     if @hash.member? key
       value = @hash[key]
 
       if Srm.is_a_hash?(value) && value.length > 0
-         HashIsh.new(value)
+        HashIsh.new(value)
       else
         value
       end
     else
-      raise(NoMethodError, "undefined method `#{key}' for #{self.to_s}")
+      fail(NoMethodError, "undefined method `#{key}' for #{self}")
     end
   end
 
@@ -30,5 +30,5 @@ class HashIsh
     to_hash.to_json
   end
 
-  alias :to_h :to_hash
+  alias_method :to_h, :to_hash
 end

@@ -5,7 +5,8 @@ gemspec
 
 gem 'benchmark-ips'
 gem 'bundler', '~> 1.10'
+gem 'hashie'
 gem 'pry'
 gem 'rake', '~> 10.0'
 gem 'rspec', '~> 3.3'
-gem 'hashie'
+gem 'rubocop'
