@@ -3,10 +3,16 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in hash_ish.gemspec
 gemspec
 
-gem 'benchmark-ips'
 gem 'bundler', '~> 1.10'
-gem 'hashie'
-gem 'pry'
 gem 'rake', '~> 10.0'
-gem 'rspec', '~> 3.3'
-gem 'rubocop'
+
+group :development do
+  gem 'benchmark-ips'
+  gem 'hashie'
+  gem 'rubocop'
+end
+
+group :development, :test do
+  gem 'rspec', '~> 3.3'
+  gem 'pry'
+end
