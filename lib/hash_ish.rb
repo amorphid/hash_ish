@@ -1,23 +1,22 @@
 require 'json'
 require 'srm'
 require 'hash_ish/version'
-# ?require 'hash_ish/override_falsey_data'
-# require 'hash_ish/add_instance_methods'
+require 'hash_ish/override_falsey_data_using_schema'
 
 class HashIsh
-  def initialize(data = {}, overrides = {})
-    @hash = data.tap do |hash|
-      hash.each_pair do |key, data|
-        if Srm.is_a_hash?(data)
-          hash[key] = (overrides.member? key) ? HashIsh.new(data, overrides[key]) : HashIsh.new(data)
-        end
-      end
-    end
+  def initialize(data = {}, schema = {})
+    @hash = OverrideFalseyDataUsingSchema.override(data, schema)
   end
 
-  def method_missing(key)
+  def method_missing(key, args = [], _ = nil, &block)
     if @hash.member? key
-      @hash[key]
+      value = @hash[key]
+
+      if Srm.is_a_hash?(value) && value.length > 0
+         HashIsh.new(value)
+      else
+        value
+      end
     else
       raise(NoMethodError, "undefined method `#{key}' for #{self.to_s}")
     end

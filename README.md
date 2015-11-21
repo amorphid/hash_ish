@@ -1,4 +1,4 @@
-# HashIsh
+# HashIsh [![Build Status](https://travis-ci.org/amorphid/hash_ish.svg)](https://travis-ci.org/amorphid/hash_ish)
 
 - A [Hashie::Mash](https://github.com/intridea/hashie#mash) knockoff
 - This is a prototype
