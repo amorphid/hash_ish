@@ -1,4 +1,4 @@
-# HashIsh [![Build Status](https://travis-ci.org/amorphid/hash_ish.svg)](https://travis-ci.org/amorphid/hash_ish)
+# HashIsh [![Build Status](https://travis-ci.org/amorphid/hash_ish.svg)](https://travis-ci.org/amorphid/hash_ish) [![Code Climate](https://codeclimate.com/github/amorphid/hash_ish/badges/gpa.svg)](https://codeclimate.com/github/amorphid/hash_ish)
 
 - A [Hashie::Mash](https://github.com/intridea/hashie#mash) knockoff
 - This is a prototype
