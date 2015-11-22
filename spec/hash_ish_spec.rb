@@ -28,9 +28,13 @@ describe HashIsh do
 
   it { expect(subject.f).to be_instance_of(Hash) }
 
+  it { expect(subject.g).to eq(hash['g']) }
+
   context '#.to_hash' do
-    it { expect(subject.to_hash).to eq(hash) }
-    it { expect(subject.to_h).to eq(hash) }
+    let(:hash_ish) { HashIsh.new({a: 1, "b" => 2}) }
+
+    it { expect(hash_ish.to_hash).to eq({a: 1, b: 2}) }
+    it { expect(hash_ish.to_h).to eq({a: 1, b: 2}) }
   end
 
   context '#to_json' do
