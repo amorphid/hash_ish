@@ -1,15 +1,14 @@
 require 'json'
 require 'srm'
 require 'hash_ish/version'
-require 'hash_ish/override_falsey_data_using_schema'
+require 'hash_ish/override_falsey_data'
 require 'hash_ish/symbolize_keys'
 
 class HashIsh
   def initialize(data = {}, schema = {})
     symbolized = SymbolizeKeys.symbolize(data)
 
-    @hash = OverrideFalseyDataUsingSchema
-            .override(symbolized, schema)
+    @hash = OverrideFalseyData.override(symbolized, schema)
   end
 
   def method_missing(key, _args = [], _ = nil, &_block)
