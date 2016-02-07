@@ -4,6 +4,7 @@ class HashIsh
       {}.tap do |symbolized_hash|
         unsymbolized_hash.each_pair do |unsymbolized_key, value|
           symbolized_key                  = unsymbolized_key.to_sym
+          VetMethodName.vet(symbolized_key)
           symbolized_hash[symbolized_key] = value
         end
       end
